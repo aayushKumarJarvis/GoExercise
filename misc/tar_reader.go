@@ -3,28 +3,10 @@ package misc
 import (
 	"archive/tar"
 	"compress/gzip"
-	"flag"
 	"fmt"
 	"io"
 	"os"
 )
-
-func main() {
-	// get the arguments from the command line
-	numPtr := flag.Int("n", 4, "an integer")
-	flag.Parse()
-
-	sourceFile := flag.Arg(0)
-
-	if sourceFile == "" {
-		fmt.Println("Dude, you didn't pass in a tar file!")
-		os.Exit(1)
-	}
-
-	fmt.Println("arg 1: ", flag.Arg(0))
-
-	ProcessFile(sourceFile, *numPtr)
-}
 
 // ProcessFile function performs the .tar.gz realated operations
 func ProcessFile(srcFile string, num int) {
