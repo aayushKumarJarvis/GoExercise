@@ -95,3 +95,26 @@ func Timeouts() {
 		fmt.Println("Timeout 2")
 	}
 }
+
+func read(output chan string) {
+	for true {
+		select {
+		case data := <-output:
+			fmt.Printf("Got message - %v\n", data)
+		}
+	}
+}
+
+func write(input chan string) {
+	for counter := 0; counter < 1000; counter++ {
+		input <- fmt.Sprintf("Sending message %d", counter)
+	}
+}
+
+// CheckNonBlockingChannelOps func
+func CheckNonBlockingChannelOps() {
+	messages := make(chan string)
+	go read(messages)
+	write(messages)
+	close(messages)
+}

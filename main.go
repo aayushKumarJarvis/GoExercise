@@ -30,4 +30,5 @@ func main() {
 	misc.Synchronization()
 	misc.ChannelDirections()
 	misc.Timeouts()
+	misc.CheckNonBlockingChannelOps()
 }
