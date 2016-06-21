@@ -29,4 +29,5 @@ func main() {
 	misc.CheckBufferedChannel()
 	misc.Synchronization()
 	misc.ChannelDirections()
+	misc.Timeouts()
 }

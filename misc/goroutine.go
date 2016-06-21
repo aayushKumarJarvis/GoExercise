@@ -65,3 +65,33 @@ func ChannelDirections() {
 
 	fmt.Println(<-pongs)
 }
+
+// Timeouts func
+func Timeouts() {
+
+	c1 := make(chan string, 1)
+	go func() {
+		time.Sleep(time.Second * 2)
+		c1 <- "result_1"
+	}()
+
+	select {
+	case res := <-c1:
+		fmt.Println(res)
+	case <-time.After(time.Second * 1):
+		fmt.Println("Timeout 1")
+	}
+
+	c2 := make(chan string, 1)
+	go func() {
+		time.Sleep(time.Second * 2)
+		c2 <- "result_2"
+	}()
+
+	select {
+	case res := <-c2:
+		fmt.Println(res)
+	case <-time.After(time.Second * 3):
+		fmt.Println("Timeout 2")
+	}
+}
