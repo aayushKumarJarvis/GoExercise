@@ -1,10 +1,6 @@
 package main
 
 import (
-	"flag"
-	"fmt"
-	"os"
-
 	"github.com/aayushKumarJarvis/practice/misc"
 )
 
@@ -17,18 +13,20 @@ func main() {
 	// Calling the FoorLoop function to print all the numbers from 1 to 10
 	//generalutils.FoorLoop()
 
-	// Calling Tar_Reader function to test tar files
-	numPtr := flag.Int("n", 4, "an integer")
-	flag.Parse()
+	//misc.ReadTarballs() // Extract tarball
 
-	sourceFile := flag.Arg(0)
+	//fmt.Println("Extracting tarball and identifying rocksdb stores. . . . ")
+	//misc.ReadTarballs()
+	//fmt.Println("Creating backup . . . ")
+	//misc.CreateBackup("/Users/aayushkumar/Downloads/192/store_db")
 
-	if sourceFile == "" {
-		fmt.Println("Dude, you didn't pass in a tar file!")
-		os.Exit(1)
-	}
-
-	fmt.Println("arg 1: ", flag.Arg(0))
-
-	misc.ProcessFile(sourceFile, *numPtr)
+	//misc.WalkSourceDir("/Users/aayushkumar/Downloads/192", "/Desktop/rocks/")
+	//misc.CreateRocksDb()
+	//http.HandleFunc("/sum", Mathematika.addHandler)
+	//http.HandleFunc("/hello", Mathematika.helloNameHandler)
+	//http.ListenAndServe(":8080", nil)
+	misc.CheckChannel()
+	misc.CheckBufferedChannel()
+	misc.Synchronization()
+	misc.ChannelDirections()
 }
